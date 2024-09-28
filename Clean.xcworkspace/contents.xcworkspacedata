@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Clean/Clean.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:Projs"
+      name = "Projs">
+      <FileSystemSynchronizedGroup
+         location = "group:Kits"
+         name = "Kits">
+      </FileSystemSynchronizedGroup>
+      <FileSystemSynchronizedGroup
+         location = "group:Features"
+         name = "Features">
+      </FileSystemSynchronizedGroup>
+   </Group>
+</Workspace>
