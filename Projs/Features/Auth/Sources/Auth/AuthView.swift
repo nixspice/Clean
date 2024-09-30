@@ -24,18 +24,5 @@ public struct AuthView: View {
 }
 
 #Preview {
-    AuthView(
-        .init(
-            id: 0,
-            core: .init(
-                id: 1
-            ),
-            common: .init(
-                id: 2
-            ),
-            design: .init(
-                id: 3
-            )
-        )
-    )
+    AuthView(AuthView.mock)
 }

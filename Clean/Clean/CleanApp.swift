@@ -23,20 +23,7 @@ struct CleanApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AuthView(
-                .init(
-                    id: 0,
-                    core: .init(
-                        id: 1
-                    ),
-                    common: .init(
-                        id: 2
-                    ),
-                    design: .init(
-                        id: 3
-                    )
-                )
-            )
+            AuthView(AuthView.mock)
         }
     }
 }
