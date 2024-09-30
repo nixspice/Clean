@@ -11,7 +11,7 @@ import Auth
 
 @main
 struct CleanApp: App {
-    @UIApplicationDelegateAdaptor(Delegate.self) var delegate
+    @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
     
     init() {
         self.delegate.connector = Connector(
