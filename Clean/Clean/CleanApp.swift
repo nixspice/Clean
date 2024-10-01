@@ -14,11 +14,9 @@ struct CleanApp: App {
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
     
     init() {
-        self.delegate.connector = Connector(
-            [
-                FirebaseConnector()
-            ]
-        )
+        self.delegate.connector = Connector([
+            FirebaseConnector()
+        ])
     }
     
     var body: some Scene {
