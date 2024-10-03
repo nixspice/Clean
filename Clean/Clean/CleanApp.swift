@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Common
-import Auth
 
 @main
 struct CleanApp: App {
@@ -21,7 +20,10 @@ struct CleanApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AuthView(AuthView.mock)
+            AnyView(
+                ApplicationCoordinator(.auth(.root))
+                    .view()
+            )
         }
     }
 }
