@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum ApplicationRoute: Route {
+public enum ApplicationRoute: Routable {
     case auth(AuthorizeRoute)
 }

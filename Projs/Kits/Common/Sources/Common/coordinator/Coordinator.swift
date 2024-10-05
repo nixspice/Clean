@@ -2,20 +2,25 @@
 //  Coordinator.swift
 //  Common
 //
-//  Created by Nihad Allahveranov on 03.10.24.
+//  Created by Nihad Allahveranov on 05.10.24.
 //
 
 import SwiftUI
 
-open class Coordinator<`Type`: Route>: Coordinatable {
-    public let type: `Type`
+public struct Coordinator<Coordinator: Coordinatable>: View {
+    @StateObject var coordinator: Coordinator
     
-    public init(_ type: `Type`) {
-        self.type = type
+    public init(_ coordinator: Coordinator) {
+        _coordinator = .init(wrappedValue: coordinator)
     }
     
-    @ViewBuilder
-    open func view() -> any View {
-        EmptyView()
+    public var body: some View {
+        NavigationStack(path: $coordinator.path) {
+            coordinator.view()
+                .navigationDestination(for: Coordinator.Route.self) { route in
+                    coordinator.view()
+                }
+        }
+        .environmentObject(coordinator)
     }
 }

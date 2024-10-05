@@ -9,18 +9,20 @@ import Auth
 import Common
 import SwiftUI
 
-public class ApplicationCoordinator: Coordinator<ApplicationRoute> {
-    public override init(_ type: ApplicationRoute) {
-        super.init(type)
+final class ApplicationCoordinator: Coordinatable {
+    @Published var current: ApplicationRoute
+    @Published var path = NavigationPath()
+    
+    init(_ current: ApplicationRoute) {
+        self.current = current
     }
     
-    public override func view() -> any View {
-        switch type {
-        case let .auth(route):
-            switch route {
-            default:
-                AuthView(AuthView.mock)
-            }
+    func view() -> AnyView {
+        switch current {
+        case .auth:
+            AnyView(
+                Coordinator(AuthCoordinator(.default))
+            )
         }
     }
 }

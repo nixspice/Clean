@@ -20,9 +20,8 @@ struct CleanApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AnyView(
-                ApplicationCoordinator(.auth(.root))
-                    .view()
+            Coordinator(
+                ApplicationCoordinator(.auth(.default))
             )
         }
     }

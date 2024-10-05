@@ -7,6 +7,8 @@
 
 import Foundation
 
-public enum AuthorizeRoute: Route {
-    case root
+public enum AuthorizeRoute: Routable {
+    case `default`
+    case auth
+    case login
 }
