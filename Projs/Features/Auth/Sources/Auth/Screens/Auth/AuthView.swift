@@ -8,7 +8,6 @@
 import SwiftUI
 
 public struct AuthView: View {
-    
     @EnvironmentObject private var coordinator: AuthCoordinator
     
     let model: Model
@@ -26,7 +25,6 @@ public struct AuthView: View {
             )
             
             Button("Login") {
-                coordinator.pop()
                 coordinator.push(.login)
             }
         }

@@ -5,32 +5,37 @@
 //  Created by Nihad Allahveranov on 03.10.24.
 //
 
-import SwiftUI
+import SwiftUICore
 
 public protocol Coordinatable: ObservableObject, Presentable {
     associatedtype Route: Routable
     
-    var current: Route { get set }
-    // TODO: create own NavigationStack
-    var path: NavigationPath { get set }
+    var stack: NavigationStack<Route> { get set }
 
     func push(_ route: Route)
-    func pop()
+    @discardableResult func pop() -> Route?
     func popToRoot()
 }
 
 extension Coordinatable {
     public func push(_ route: Route) {
-        current = route
-        path.append(route)
+        stack.value.append(route)
     }
     
-    public func pop() {
-        if path.count == 0 { return }
-        path.removeLast()
+    @discardableResult
+    public func pop() -> Route? {
+        stack.value.popLast()
+    }
+    
+    public func pop(to route: Route) {
+        guard let index = stack.value.firstIndex(of: route) else {
+            return
+        }
+        
+        stack.value.removeLast(stack.value.count - index - 1)
     }
     
     public func popToRoot() {
-        path.removeLast(path.count - 1)
+        stack.value.removeAll()
     }
 }

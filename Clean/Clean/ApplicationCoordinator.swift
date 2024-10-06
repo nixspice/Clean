@@ -7,21 +7,17 @@
 
 import Auth
 import Common
-import SwiftUI
+import Foundation
+import SwiftUICore
 
 final class ApplicationCoordinator: Coordinatable {
-    @Published var current: ApplicationRoute
-    @Published var path = NavigationPath()
-    
-    init(_ current: ApplicationRoute) {
-        self.current = current
-    }
+    var stack = NavigationStack<ApplicationRoute>()
     
     func view() -> AnyView {
-        switch current {
-        case .auth:
+        switch stack.current {
+        default:
             AnyView(
-                Coordinator(AuthCoordinator(.default))
+                Coordinator(AuthCoordinator())
             )
         }
     }

@@ -15,7 +15,7 @@ public struct Coordinator<Coordinator: Coordinatable>: View {
     }
     
     public var body: some View {
-        NavigationStack(path: $coordinator.path) {
+        SwiftUI.NavigationStack(path: $coordinator.stack.value) {
             coordinator.view()
                 .navigationDestination(for: Coordinator.Route.self) { route in
                     coordinator.view()

@@ -5,19 +5,16 @@
 //  Created by Nihad Allahveranov on 05.10.24.
 //
 
-import SwiftUI
 import Common
+import SwiftUICore
 
 public class AuthCoordinator: Coordinatable {
-    @Published public var current: AuthorizeRoute
-    @Published public var path = NavigationPath()
+    public var stack = NavigationStack<AuthorizeRoute>()
     
-    public init(_ current: AuthorizeRoute) {
-        self.current = current
-    }
+    public init() {}
     
     public func view() -> AnyView {
-        switch current {
+        switch stack.current {
         case .auth:
             AnyView(
                 AuthView(AuthView.mock)
