@@ -13,12 +13,10 @@ import SwiftUICore
 final class ApplicationCoordinator: Coordinatable {
     var stack = NavigationStack<ApplicationRoute>()
     
-    func view() -> AnyView {
+    public var view: some View {
         switch stack.current {
         default:
-            AnyView(
-                Coordinator(AuthCoordinator())
-            )
+            Coordinator(AuthCoordinator())
         }
     }
 }

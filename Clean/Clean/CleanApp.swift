@@ -20,7 +20,7 @@ struct CleanApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ApplicationCoordinator().view()
+            ApplicationCoordinator().view
         }
     }
 }

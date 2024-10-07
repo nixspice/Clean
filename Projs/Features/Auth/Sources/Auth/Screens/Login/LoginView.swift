@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct LoginView: View {
-    var body: some View {
+public struct LoginView: View {
+    public var body: some View {
         Text("Hello, Login!")
             .navigationTitle("Login")
     }

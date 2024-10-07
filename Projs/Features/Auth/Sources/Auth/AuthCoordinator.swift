@@ -13,20 +13,16 @@ public class AuthCoordinator: Coordinatable {
     
     public init() {}
     
-    public func view() -> AnyView {
-        switch stack.current {
-        case .auth:
-            AnyView(
+    public var view: some View {
+        Group {
+            switch stack.current {
+            case .auth:
                 AuthView(AuthView.mock)
-            )
-        case .login:
-            AnyView(
+            case .login:
                 LoginView()
-            )
-        default:
-            AnyView(
+            default:
                 AuthView(AuthView.mock)
-            )
+            }
         }
     }
 }

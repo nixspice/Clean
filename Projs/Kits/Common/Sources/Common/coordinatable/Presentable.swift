@@ -8,11 +8,7 @@
 import SwiftUI
 
 public protocol Presentable {
-    @MainActor func view() -> AnyView
-}
-
-extension AnyView: Presentable {
-    public func view() -> AnyView {
-        return self
-    }
+    associatedtype Body: View
+    
+    @MainActor var view: Body { get }
 }
