@@ -9,4 +9,5 @@ import Foundation
 
 public enum ApplicationRoute: Routable {
     case auth(AuthorizeRoute)
+    case home(HomeRoute = .default)
 }

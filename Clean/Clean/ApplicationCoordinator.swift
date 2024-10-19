@@ -6,17 +6,22 @@
 //
 
 import Auth
+import Home
 import Common
 import Foundation
 import SwiftUICore
 
 final class ApplicationCoordinator: Coordinatable {
-    var stack = NavigationStack<ApplicationRoute>()
+    @Published var stack = [ApplicationRoute]()
     
     public var view: some View {
-        switch stack.current {
-        default:
-            Coordinator(AuthCoordinator())
+        Group {
+            switch stack.last {
+            case .home:
+                Coordinator(HomeCoordinator())
+            default:
+                Coordinator(AuthCoordinator())
+            }
         }
     }
 }

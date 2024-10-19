@@ -11,4 +11,5 @@ public enum AuthorizeRoute: Routable {
     case `default`
     case auth
     case login
+    case register
 }

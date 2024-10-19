@@ -10,8 +10,8 @@ import SwiftUICore
 public protocol Coordinatable: ObservableObject, Presentable {
     associatedtype Route: Routable
     
-    var stack: NavigationStack<Route> { get set }
-
+    var stack: [Route] { get set }
+    
     func push(_ route: Route)
     @discardableResult func pop() -> Route?
     func popToRoot()
@@ -19,23 +19,23 @@ public protocol Coordinatable: ObservableObject, Presentable {
 
 extension Coordinatable {
     public func push(_ route: Route) {
-        stack.value.append(route)
+        stack.append(route)
     }
     
     @discardableResult
     public func pop() -> Route? {
-        stack.value.popLast()
+        stack.popLast()
     }
     
     public func pop(to route: Route) {
-        guard let index = stack.value.firstIndex(of: route) else {
+        guard let index = stack.firstIndex(of: route) else {
             return
         }
         
-        stack.value.removeLast(stack.value.count - index - 1)
+        stack.removeLast(stack.count - index - 1)
     }
     
     public func popToRoot() {
-        stack.value.removeAll()
+        stack.removeAll()
     }
 }

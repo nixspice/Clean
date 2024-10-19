@@ -11,6 +11,7 @@
 		3B6B92D72CA8A7CE0020FCA8 /* Design in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6B92D62CA8A7CE0020FCA8 /* Design */; };
 		3B6B92D92CA8A8AA0020FCA8 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6B92D82CA8A8AA0020FCA8 /* Common */; };
 		3B6B92DB2CA8A9B40020FCA8 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6B92DA2CA8A9B40020FCA8 /* Auth */; };
+		3BF200872CC45B190081D970 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 3BF200862CC45B190081D970 /* Home */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 				3B6B92D72CA8A7CE0020FCA8 /* Design in Frameworks */,
 				3B6B92D52CA8A5790020FCA8 /* Core in Frameworks */,
 				3B6B92DB2CA8A9B40020FCA8 /* Auth in Frameworks */,
+				3BF200872CC45B190081D970 /* Home in Frameworks */,
 				3B6B92D92CA8A8AA0020FCA8 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +131,7 @@
 				3B6B92D62CA8A7CE0020FCA8 /* Design */,
 				3B6B92D82CA8A8AA0020FCA8 /* Common */,
 				3B6B92DA2CA8A9B40020FCA8 /* Auth */,
+				3BF200862CC45B190081D970 /* Home */,
 			);
 			productName = Clean;
 			productReference = 3B6B92A62CA8A5280020FCA8 /* Clean.app */;
@@ -587,6 +590,10 @@
 		3B6B92DA2CA8A9B40020FCA8 /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Auth;
+		};
+		3BF200862CC45B190081D970 /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

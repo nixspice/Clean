@@ -8,9 +8,17 @@
 import SwiftUI
 
 public struct LoginView: View {
+    @EnvironmentObject private var coordinator: AuthCoordinator
+    
     public var body: some View {
-        Text("Hello, Login!")
-            .navigationTitle("Login")
+        VStack {
+            Text("Hello, Login!")
+            
+            Button("Register") {
+                coordinator.push(.register)
+            }
+        }
+        .navigationTitle("Login")
     }
 }
 
