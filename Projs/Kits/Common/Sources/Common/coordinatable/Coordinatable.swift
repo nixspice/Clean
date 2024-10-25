@@ -8,8 +8,6 @@
 import SwiftUICore
 
 public protocol Coordinatable: ObservableObject, Presentable {
-    associatedtype Route: Routable
-    
     var stack: [Route] { get set }
     
     func push(_ route: Route)

@@ -11,16 +11,17 @@ import Common
 import Foundation
 import SwiftUICore
 
-final class ApplicationCoordinator: Coordinatable {
-    @Published var stack = [ApplicationRoute]()
-    
-    public var view: some View {
-        Group {
-            switch stack.last {
-            case .home:
-                Coordinator(HomeCoordinator())
-            default:
-                Coordinator(AuthCoordinator())
+final class ApplicationCoordinator {
+    @MainActor @ViewBuilder
+    static func start(with route: ApplicationRoute = .auth(.default)) -> some View {
+        switch route {
+        case let .auth(route):
+            Coordinator(AuthCoordinator()) {
+                $0.route(route)
+            }
+        case let .home(route):
+            Coordinator(HomeCoordinator()) {
+                $0.route(route)
             }
         }
     }

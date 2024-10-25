@@ -8,7 +8,8 @@
 import SwiftUI
 
 public protocol Presentable {
+    associatedtype Route: Routable
     associatedtype Body: View
     
-    @MainActor var view: Body { get }
+    @MainActor func route(_ route: Route) -> Body
 }

@@ -7,18 +7,20 @@
 
 import SwiftUI
 
-public struct Coordinator<Coordinator: Coordinatable>: View {
+public struct Coordinator<Coordinator: Coordinatable, Content: View>: View {
     @StateObject var coordinator: Coordinator
+    let content: (Coordinator) -> Content
     
-    public init(_ coordinator: Coordinator) {
-        _coordinator = .init(wrappedValue: coordinator)
+    public init(_ coordinator: Coordinator, @ViewBuilder content: @escaping (Coordinator) -> Content) {
+        self._coordinator = .init(wrappedValue: coordinator)
+        self.content = content
     }
     
     public var body: some View {
         NavigationStack(path: $coordinator.stack) {
-            coordinator.view
+            content(coordinator)
                 .navigationDestination(for: Coordinator.Route.self) { route in
-                    coordinator.view
+                    coordinator.route(route)
                 }
         }
         .environmentObject(coordinator)

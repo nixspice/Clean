@@ -13,18 +13,17 @@ public class AuthCoordinator: Coordinatable {
     
     public init() {}
     
-    public var view: some View {
-        Group {
-            switch stack.last {
-            case .auth:
-                AuthView(AuthView.mock)
-            case .login:
-                LoginView()
-            case .register:
-                RegisterView()
-            default:
-                AuthView(AuthView.mock)
-            }
+    @ViewBuilder
+    public func route(_ route: AuthorizeRoute) -> some View {
+        switch route {
+        case .auth:
+            AuthView(AuthView.mock)
+        case .login:
+            LoginView()
+        case .register:
+            RegisterView()
+        default:
+            AuthView(AuthView.mock)
         }
     }
 }

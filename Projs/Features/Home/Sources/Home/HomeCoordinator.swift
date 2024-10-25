@@ -13,12 +13,11 @@ public class HomeCoordinator: Coordinatable {
     
     public init() {}
     
-    public var view: some View {
-        Group {
-            switch stack.last {
-            default:
-                HomeView()
-            }
+    @ViewBuilder
+    public func route(_ route: HomeRoute) -> some View {
+        switch route {
+        default:
+            HomeView()
         }
     }
 }
