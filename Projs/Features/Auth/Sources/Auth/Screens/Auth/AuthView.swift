@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct AuthView: View {
-    @EnvironmentObject private var coordinator: AuthCoordinator
+    @EnvironmentObject private var navigator: AuthNavigation
     
     let model: Model
     
@@ -19,13 +19,15 @@ public struct AuthView: View {
     }
     
     public var body: some View {
-        VStack {
-            Text(
-                "Hello, Auth! \(model.id) \(model.core.id) \(model.common.id) \(model.design.id)"
-            )
-            
-            Button("Login") {
-                coordinator.push(.login)
+        ScrollView {
+            VStack {
+                Text(
+                    "Hello, Auth! \(model.id) \(model.core.id) \(model.common.id) \(model.design.id)"
+                )
+                
+                Button("Login") {
+                    navigator.push(.login)
+                }
             }
         }
         .navigationTitle("Authorization")

@@ -8,14 +8,15 @@
 import Common
 import SwiftUICore
 
-public class AuthCoordinator: Coordinatable {
-    @Published public var stack = [AuthorizeRoute]()
+public class AuthNavigation: Navigation {
+    @Published public var path: [AuthorizeDestination] = .init()
     
-    public init() {}
+    public init() {
+        
+    }
     
-    @ViewBuilder
-    public func route(_ route: AuthorizeRoute) -> some View {
-        switch route {
+    public func navigate(_ destination: AuthorizeDestination) -> some View {
+        switch destination {
         case .auth:
             AuthView(AuthView.mock)
         case .login:

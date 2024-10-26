@@ -8,14 +8,14 @@
 import Common
 import SwiftUICore
 
-public class HomeCoordinator: Coordinatable {
-    @Published public var stack = [HomeRoute]()
+public class HomeCoordinator: Navigation {
+    @Published public var path: [HomeDestination] = .init()
     
     public init() {}
     
     @ViewBuilder
-    public func route(_ route: HomeRoute) -> some View {
-        switch route {
+    public func navigate(_ destination: HomeDestination) -> some View {
+        switch destination {
         default:
             HomeView()
         }

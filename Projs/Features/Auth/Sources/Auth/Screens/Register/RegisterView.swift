@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @EnvironmentObject private var coordinator: AuthCoordinator
+    @EnvironmentObject private var navigator: AuthNavigation
     
     var body: some View {
-        VStack {
-            Text("Hello, Register!")
-            
-            Button("Go Root") {
-                coordinator.popToRoot()
+        ScrollView {
+            VStack {
+                Text("Hello, Register!")
+                
+                Button("Go Root") {
+                    navigator.popToRoot()
+                }
             }
         }
         .navigationTitle("Register")

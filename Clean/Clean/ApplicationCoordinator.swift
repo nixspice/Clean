@@ -13,15 +13,15 @@ import SwiftUICore
 
 final class ApplicationCoordinator {
     @MainActor @ViewBuilder
-    static func start(with route: ApplicationRoute = .auth(.default)) -> some View {
-        switch route {
-        case let .auth(route):
-            Coordinator(AuthCoordinator()) {
-                $0.route(route)
+    static func start(with destination: ApplicationDestination = .auth(.default)) -> some View {
+        switch destination {
+        case let .auth(destination):
+            Coordinator(AuthNavigation()) {
+                $0.navigate(destination)
             }
-        case let .home(route):
+        case let .home(destination):
             Coordinator(HomeCoordinator()) {
-                $0.route(route)
+                $0.navigate(destination)
             }
         }
     }
